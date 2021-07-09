@@ -1,6 +1,7 @@
-import { Button, TextField } from "@material-ui/core";
-import { Form, Formik } from "formik";
+import { Button } from "@material-ui/core";
+import { Field, Form, Formik } from "formik";
 import React from "react";
+import MyField from "./MyField";
 
 interface IValues {
   firstName: string;
@@ -18,34 +19,24 @@ const MyForm: React.FC<IProps> = ({ onSubmit }) => {
       initialValues={{ firstName: "", lastName: "", email: "" }}
       onSubmit={(values: IValues) => onSubmit(values)}
     >
-      {({ values, handleChange, handleBlur }) => (
+      {() => (
         <Form>
           <div>
-            <TextField
+            <Field
               name="firstName"
               placeholder="first name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.firstName}
+              component={MyField}
             />
           </div>
           <div>
-            <TextField
+            <Field
               name="lastName"
               placeholder="last name"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.lastName}
+              component={MyField}
             />
           </div>
           <div>
-            <TextField
-              name="email"
-              placeholder="email"
-              onChange={handleChange}
-              onBlur={handleBlur}
-              value={values.email}
-            />
+            <Field name="email" placeholder="email" component={MyField} />
           </div>
           <Button type="submit">Submit</Button>
           {/* <pre>{JSON.stringify(values)}</pre> */}
