@@ -25,6 +25,7 @@ const MyForm: React.FC<IProps> = ({ onSubmit }) => {
             <Field
               name="firstName"
               placeholder="first name"
+              label="first name"
               component={MyField}
             />
           </div>
@@ -32,11 +33,17 @@ const MyForm: React.FC<IProps> = ({ onSubmit }) => {
             <Field
               name="lastName"
               placeholder="last name"
+              label="last name"
               component={MyField}
             />
           </div>
           <div>
-            <Field name="email" placeholder="email" component={MyField} />
+            <Field
+              name="email"
+              placeholder="email"
+              label="email"
+              component={MyField}
+            />
           </div>
           <Button type="submit">Submit</Button>
           {/* <pre>{JSON.stringify(values)}</pre> */}
