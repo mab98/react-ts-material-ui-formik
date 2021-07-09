@@ -8,7 +8,9 @@ const App: React.FC = () => {
     { id: "", firstName: "", lastName: "", email: "" },
   ]);
   return (
-    <div style={{ textAlign: "center" }}>
+    <div
+      style={{ textAlign: "center", maxWidth: "550px", margin: "50px auto" }}
+    >
       <MyForm
         onSubmit={(data) => {
           setRows((currentRows) => [
