@@ -1,21 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
+import { generate } from "shortid";
 import MyForm from "./MyForm";
+import MyTable from "./MyTable";
 
-const App = () => {
+const App: React.FC = () => {
+  const [rows, setRows] = useState([
+    { id: "", firstName: "", lastName: "", email: "" },
+  ]);
   return (
     <div style={{ textAlign: "center" }}>
       <MyForm
-        onSubmit={({ firstName, lastName, email }) => {
-          alert(
-            "firstName: " +
-              firstName +
-              "\nlastName: " +
-              lastName +
-              "\nemail: " +
-              email
-          );
+        onSubmit={(data) => {
+          setRows((currentRows) => [
+            ...currentRows,
+            { id: generate(), ...data },
+          ]);
         }}
       />
+      <MyTable rows={rows} />
     </div>
   );
 };

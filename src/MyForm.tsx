@@ -17,7 +17,10 @@ const MyForm: React.FC<IProps> = ({ onSubmit }) => {
   return (
     <Formik
       initialValues={{ firstName: "", lastName: "", email: "" }}
-      onSubmit={(values: IValues) => onSubmit(values)}
+      onSubmit={(values: IValues, { resetForm }) => {
+        onSubmit(values);
+        resetForm();
+      }}
     >
       {() => (
         <Form>
